@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/activityLoginScreen"> <!-- A tela de login é a primeira tela -->
+
+    <!-- Destino para a tela de Login -->
+    <activity
+        android:id="@+id/activityLoginScreen"
+        android:name="com.example.login_home2.LoginActivity"
+        android:label="Login"
+        tools:layout="@layout/activity_login" />
+
+    <!-- Destino principal (Tela Inicial) -->
+    <activity
+        android:id="@+id/activityPrincipalScreen"
+        android:name="com.example.login_home2.PrincipalActivity"
+        android:label="Principal"
+        tools:layout="@layout/activity_principal" />
+
+    <!-- Destino para a tela de Desafios -->
+    <activity
+        android:id="@+id/activityDesafiosScreen"
+        android:name="com.example.login_home2.DesafiosActivity"
+        android:label="Desafios"
+        tools:layout="@layout/activity_desafios" />
+
+    <!-- Destino para a tela de Pontuação -->
+    <activity
+        android:id="@+id/activityPontuacaoScreen"
+        android:name="com.example.login_home2.PontuacaoActivity"
+        android:label="Pontuação"
+        tools:layout="@layout/activity_pontuacao" />
+
+    <!-- Destino para a tela de Dicas -->
+    <activity
+        android:id="@+id/activityDicasScreen"
+        android:name="com.example.login_home2.DicasActivity"
+        android:label="Dicas"
+        tools:layout="@layout/activity_dicas" />
+</navigation>

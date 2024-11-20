@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Tema global do aplicativo -->
+    <style name="Theme.Login_home2" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Personalizando com as cores definidas no colors.xml -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/accentColor</item>
+    </style>
+
+    <!-- Tema alternativo sem ActionBar, caso necessário -->
+    <style name="Theme.Login_home2.NoActionBar" parent="Theme.AppCompat.Light">
+        <!-- Personalize com as cores aqui, se necessário -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+    </style>
+
+</resources>
