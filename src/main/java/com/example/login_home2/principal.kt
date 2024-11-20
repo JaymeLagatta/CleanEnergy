@@ -71,7 +71,7 @@ fun PrincipalScreen(navController: NavController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(16.dp))
-                    .background(Color(0xFF2196F3))
+                    .background(Color(0xFF04344d))
                     .padding(16.dp)
             )
 
@@ -81,13 +81,14 @@ fun PrincipalScreen(navController: NavController) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Color(0xFFBDBDBD), shape = RoundedCornerShape(8.dp))
+                    .background(Color(0xFF00bfff), shape = RoundedCornerShape(8.dp))
                     .padding(8.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
                     text = "Usuário",
                     fontWeight = FontWeight.Bold,
+                    color = Color(0xFF04344d),
                     fontFamily = FontFamily.SansSerif,
                     modifier = Modifier.weight(2f),
                     fontSize = 18.sp
@@ -95,6 +96,7 @@ fun PrincipalScreen(navController: NavController) {
                 Text(
                     text = "Ação",
                     fontWeight = FontWeight.Bold,
+                    color = Color(0xFF04344d),
                     fontFamily = FontFamily.SansSerif,
                     modifier = Modifier.weight(1f),
                     fontSize = 18.sp
@@ -102,6 +104,7 @@ fun PrincipalScreen(navController: NavController) {
                 Text(
                     text = "Pontuação",
                     fontWeight = FontWeight.Bold,
+                    color = Color(0xFF04344d),
                     fontFamily = FontFamily.SansSerif,
                     modifier = Modifier.weight(1f),
                     fontSize = 18.sp
@@ -143,7 +146,7 @@ fun PrincipalScreen(navController: NavController) {
                             modifier = Modifier
                                 .weight(1f)
                                 .clip(CircleShape)
-                                .background(Color(0xFFFF9800))
+                                .background(Color(0xFF00bfff))
                                 .clickable {
                                     // Aqui podemos colocar a navegação ou ação de abrir link
                                     Log.d("Ação", "Clicado no link: ${usuario.third}")
@@ -175,20 +178,29 @@ fun TopAppBarWithMenu(navController: NavController) {
     var showMenu by remember { mutableStateOf(false) }
 
     TopAppBar(
-        title = { Text("Clean Energy") },
+        title = {
+            Text(
+                "Clean Energy",
+                color = Color(0xFF04344d),
+                fontWeight = FontWeight.Bold
+            )
+        },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = Color(0xFF00bfff)
+        ),
         actions = {
             IconButton(onClick = { showMenu = true }) {
                 Icon(
                     Icons.Filled.Menu,
                     contentDescription = "Menu",
-                    tint = Color(0xFFFF9800)
+                    tint = Color(0xFF04344d)
                 )
             }
             DropdownMenu(
                 expanded = showMenu,
                 onDismissRequest = { showMenu = false },
                 modifier = Modifier
-                    .background(Color(0xFFFF9800))
+                    .background(Color(0xFF04344d))
                     .width(400.dp)
                     .height(400.dp)
             ) {
@@ -201,7 +213,7 @@ fun TopAppBarWithMenu(navController: NavController) {
                     DropdownMenuItem(
                         text = {
                             Text(
-                                "Desafios",
+                                "DESAFIOS",
                                 fontSize = 30.sp,
                                 fontWeight = FontWeight.Bold,
                                 fontFamily = FontFamily.SansSerif,
@@ -218,7 +230,7 @@ fun TopAppBarWithMenu(navController: NavController) {
                     DropdownMenuItem(
                         text = {
                             Text(
-                                "Pontuação",
+                                "PONTUAÇÃO",
                                 fontSize = 30.sp,
                                 fontWeight = FontWeight.Bold,
                                 fontFamily = FontFamily.SansSerif,
@@ -235,7 +247,7 @@ fun TopAppBarWithMenu(navController: NavController) {
                     DropdownMenuItem(
                         text = {
                             Text(
-                                "Dicas",
+                                "DICAS",
                                 fontSize = 30.sp,
                                 fontWeight = FontWeight.Bold,
                                 fontFamily = FontFamily.SansSerif,
@@ -252,7 +264,7 @@ fun TopAppBarWithMenu(navController: NavController) {
                     DropdownMenuItem(
                         text = {
                             Text(
-                                "Classificação",
+                                "CLASSIFICAÇÃO",
                                 fontSize = 30.sp,
                                 fontWeight = FontWeight.Bold,
                                 fontFamily = FontFamily.SansSerif,
@@ -269,12 +281,29 @@ fun TopAppBarWithMenu(navController: NavController) {
                     DropdownMenuItem(
                         text = {
                             Text(
-                                "Sair",
+                                "VIDEOS",
                                 fontSize = 30.sp,
                                 fontWeight = FontWeight.Bold,
                                 fontFamily = FontFamily.SansSerif,
                                 textAlign = TextAlign.Center,
                                 color = Color.White
+                            )
+                        },
+                        onClick = {
+                            showMenu = false
+                            navController.navigate("videos")
+                        },
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                    DropdownMenuItem(
+                        text = {
+                            Text(
+                                "SAIR",
+                                fontSize = 30.sp,
+                                fontWeight = FontWeight.Bold,
+                                fontFamily = FontFamily.SansSerif,
+                                textAlign = TextAlign.Center,
+                                color = Color(0xFF00bfff)
                             )
                         },
                         onClick = {

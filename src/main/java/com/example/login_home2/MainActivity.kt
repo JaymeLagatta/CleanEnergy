@@ -20,6 +20,7 @@ object Screen {
     const val Desafios = "desafios"
     const val Pontuacao = "pontuacao"
     const val Dicas = "dicas"
+    const val Videos = "videos"
 }
 
 class MainActivity : ComponentActivity() {
@@ -51,6 +52,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(Screen.Dicas) {
                             DicasScreen(navController = navController)
+                        }
+                        composable(Screen.Videos) {
+                            VideosScreen(navController = navController)
                         }
                     }
                 }

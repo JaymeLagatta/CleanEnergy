@@ -27,15 +27,25 @@ fun PontuacaoScreen(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Clean Energy") },
+                title = {
+                    Text(
+                        "Clean Energy",
+                        color = Color(0xFF04344d),
+                        fontWeight = FontWeight.Bold
+                    )
+                },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(
                             imageVector = Icons.Filled.ArrowBack,
-                            contentDescription = "Voltar"
+                            contentDescription = "Voltar",
+                            tint = Color(0xFF04344d)
                         )
                     }
-                }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color(0xFF00bfff)
+                )
             )
         },
         content = { paddingValues ->
@@ -63,7 +73,7 @@ fun PontuacaoScreen(navController: NavHostController) {
                     fontSize = 36.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.SansSerif,
-                    color = Color(0xFF6200EE),
+                    color = Color(0xFF04344d),
                     modifier = Modifier
                         .padding(bottom = 16.dp)
                         .fillMaxWidth(),
@@ -79,7 +89,7 @@ fun PontuacaoScreen(navController: NavHostController) {
                     Icon(
                         imageVector = Icons.Filled.Star,
                         contentDescription = "Troféu",
-                        tint = Color(0xFF6200EE),
+                        tint = Color(0xFF04344d),
                         modifier = Modifier.size(50.dp)
                     )
                     Spacer(modifier = Modifier.width(8.dp))
@@ -87,7 +97,7 @@ fun PontuacaoScreen(navController: NavHostController) {
                         text = "💚 $totalPontos pontos",
                         fontSize = 32.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF4CAF50)
+                        color = Color(0xFF04344d)
                     )
                 }
 
@@ -106,7 +116,7 @@ fun PontuacaoScreen(navController: NavHostController) {
                         .padding(horizontal = 32.dp)
                         .height(50.dp)
                         .clip(RoundedCornerShape(8.dp)),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF6200EE))
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF04344d))
                 ) {
                     Text(
                         text = "Voltar para Principal",
@@ -125,7 +135,7 @@ fun PontuacaoScreen(navController: NavHostController) {
 fun PontuacaoPorCategoria(categoria: String, pontos: Int) {
     // Definindo a cor para cada categoria
     val corCategoria = when (categoria) {
-        "Energia" -> Color(0xFFFFD700) // Amarelo para Energia
+        "Energia" -> Color(0xFF930090) // Amarelo para Energia
         "Mobilidade" -> Color(0xFF32CD32) // Verde para Mobilidade
         "Ambiente" -> Color(0xFF00BFFF) // Azul para Ambiente
         "Saúde" -> Color(0xFFFF6347) // Laranja para Saúde
@@ -180,7 +190,7 @@ fun PontuacaoPorCategoria(categoria: String, pontos: Int) {
                 imageVector = Icons.Outlined.Star,
                 contentDescription = "Estrela vazada",
                 modifier = Modifier.size(30.dp),
-                tint = Color.White
+                tint = Color(0xFF04344d)
             )
         }
     }

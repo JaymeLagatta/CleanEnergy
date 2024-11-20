@@ -34,7 +34,8 @@ fun DicasScreen(navController: NavHostController) {
                 title = {
                     Text(
                         "Clean Energy",
-                        color = Color.Black,
+                        color = Color(0xFF04344d),
+                        fontWeight = FontWeight.Bold
                     )
                 },
                 navigationIcon = {
@@ -42,12 +43,12 @@ fun DicasScreen(navController: NavHostController) {
                         Icon(
                             imageVector = Icons.Filled.ArrowBack,
                             contentDescription = "Voltar",
-                            tint = Color.Black
+                            tint = Color(0xFF04344d)
                         )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Color.White
+                    containerColor = Color(0xFF00bfff)
                 )
             )
         },
@@ -67,7 +68,7 @@ fun DicasScreen(navController: NavHostController) {
                     fontSize = 36.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.SansSerif,
-                    color = Color(0xFF6200EE),
+                    color = Color(0xFF04344d),
                     lineHeight = 48.sp,
                     modifier = Modifier
                         .padding(bottom = 16.dp)
@@ -101,7 +102,7 @@ fun DicasScreen(navController: NavHostController) {
                     fontSize = 28.sp,
                     fontWeight = FontWeight.Bold,
                     fontFamily = FontFamily.SansSerif,
-                    color = Color(0xFF6200EE),
+                    color = Color(0xFF04344d),
                     modifier = Modifier.padding(vertical = 8.dp)
                 )
 
@@ -113,7 +114,7 @@ fun DicasScreen(navController: NavHostController) {
                     "3 - Saúde" to "https://futurodasaude.com.br/tudosobre/esg-na-saude/"
                 )
                 val coresCategorias = listOf(
-                    Color(0xFFFFD700), // Energia
+                    Color(0xFF930090), // Energia
                     Color(0xFF32CD32), // Mobilidade
                     Color(0xFF00BFFF), // Ambiente
                     Color(0xFFFF6347)  // Saúde

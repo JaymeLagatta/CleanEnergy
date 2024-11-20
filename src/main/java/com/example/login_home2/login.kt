@@ -5,17 +5,32 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalTextStyle
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -47,6 +62,7 @@ fun NavHostControllerSetup(navController: NavHostController) {
         composable("desafios") { DesafiosScreen(navController) }
         composable("dicas") { DicasScreen(navController) }
         composable("pontuacao") { PontuacaoScreen(navController) }
+        composable("videos") { VideosScreen(navController) }
     }
 }
 
@@ -60,7 +76,7 @@ fun LoginPage(navController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFE0E0E0)) // Cor de fundo cinza claro
+            .background(Color(0xF9FAFB)) // Cor de fundo cinza claro
             //.background(Color(0xFF2196F3)) // azul
     ) {
         Column(
@@ -82,13 +98,13 @@ fun LoginPage(navController: NavHostController) {
             // Texto "ESG Connect"
             Text(
                 text = "Clean Energy",
-                fontSize = 42.sp,
-                color = (Color(0xFF2196F3)),
+                fontSize = 50.sp,
+                color = (Color(0xFF00bfff)),
                 fontFamily = FontFamily.SansSerif,
                 fontWeight = FontWeight.Bold,
                 style = MaterialTheme.typography.headlineMedium,
                 modifier = Modifier
-                    .padding(bottom = 36.dp)
+                    .padding(bottom = 32.dp)
                     .align(Alignment.CenterHorizontally)
             )
 
@@ -100,14 +116,22 @@ fun LoginPage(navController: NavHostController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(60.dp)
-                    .padding(bottom = 28.dp),
+                    .padding(bottom = 8.dp),
                 colors = TextFieldDefaults.textFieldColors(
-                    containerColor = Color.White,
-                    focusedIndicatorColor = Color(0xFF2196F3), // cor do indicador de foco
-                    unfocusedIndicatorColor = Color.Gray, // cor do indicador quando não focado
-                    cursorColor = Color.Black // cor do cursor
+                    containerColor = Color(0xFF04344d), // fundo do campo
+                    //containerColor = Color.DarkGray, // fundo do campo
+                    focusedIndicatorColor = Color.Yellow, // indicador de foco
+                    unfocusedIndicatorColor = Color.White, // indicador não focado
+                    cursorColor = Color.White, // Cor do cursor
+                    focusedLabelColor = Color.Yellow, // label quando focado
+                    unfocusedLabelColor = Color.LightGray // label quando não focado
+                ),
+                textStyle = LocalTextStyle.current.copy(
+                    color = Color.White // Define a cor do texto digitado
                 )
             )
+
+            Spacer(modifier = Modifier.height(24.dp))
             // Possibilidade de campod e senha futuro
             TextField(
                 value = username,
@@ -116,15 +140,21 @@ fun LoginPage(navController: NavHostController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(60.dp)
-                    .padding(bottom = 16.dp),
+                    .padding(bottom = 8.dp),
                 colors = TextFieldDefaults.textFieldColors(
-                    containerColor = Color.White,
-                    focusedIndicatorColor = Color(0xFF2196F3), // cor do indicador de foco
-                    unfocusedIndicatorColor = Color.Gray, // cor do indicador quando não focado
-                    cursorColor = Color.Black // cor do cursor
+                    containerColor = Color(0xFF04344d), // Cor do fundo do campo
+                    focusedIndicatorColor = Color.Yellow, // Cor do indicador de foco
+                    unfocusedIndicatorColor = Color.White, // Cor do indicador quando não focado
+                    cursorColor = Color.White, // Cor do cursor
+                    focusedLabelColor = Color.Yellow, // Cor do label quando focado
+                    unfocusedLabelColor = Color.LightGray // Cor do label quando não focado
+                ),
+                textStyle = LocalTextStyle.current.copy(
+                    color = Color.White // Define a cor do texto digitado
                 )
             )
 
+            Spacer(modifier = Modifier.height(32.dp))
             // Botão "Login" em laranja
             Button(
                 onClick = { navController.navigate("principal") },
@@ -132,7 +162,7 @@ fun LoginPage(navController: NavHostController) {
                     .fillMaxWidth()
                     .height(70.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF2196F3) // laranja
+                    containerColor = Color(0xFF00bfff) // laranja
                 ),
                 shape = MaterialTheme.shapes.medium
             ) {
@@ -160,14 +190,14 @@ fun LoginPage(navController: NavHostController) {
             //    modifier = Modifier.padding(horizontal = 20.dp)
             //)
             // imagem
-            Spacer(modifier = Modifier.height(12.dp))  // espaço
-            Image(
-                painter = painterResource(id = R.drawable.objetivos), // imagem
-                contentDescription = "Imagem ilustrativa",
-                modifier = Modifier
-                    .fillMaxWidth()  // largura
-                    .height(350.dp) // altura
-            )
+            //Spacer(modifier = Modifier.height(12.dp))  // espaço
+            //Image(
+            //    painter = painterResource(id = R.drawable.objetivos), // imagem
+            //    contentDescription = "Imagem ilustrativa",
+            //    modifier = Modifier
+            //        .fillMaxWidth()  // largura
+            //        .height(350.dp) // altura
+            //)
         }
     }
 }
